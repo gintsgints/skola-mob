@@ -12,10 +12,12 @@ async function greet() {
 </script>
 
 <template>
-  <main class="container">
-    <h1>Welcome Smart outlet central</h1>
-
-  </main>
+  <NuxtLayout>
+    <v-app>
+      <h1>Welcome Smart outlet central</h1>
+      <v-btn color="success">Test button</v-btn>
+    </v-app>
+  </NuxtLayout>
 </template>
 
 <style scoped>
