@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00BEE16C95D74785FEEB9524 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8173832D8AB3BB281EEC6A3 /* Security.framework */; };
+		13691C35D5B3E15E09BFA24E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11643BF89FAD6EA23A5EF175 /* CoreGraphics.framework */; };
+		1AB2A4FCA1FA57C91662504C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D648EE9E15ECF4BA768C939 /* LaunchScreen.storyboard */; };
+		1B7C85DE09F5556849E43B73 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194793FD883487845EEBC7EB /* WebKit.framework */; };
+		297A1FC29EBA4AFD6DF6E499 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF1A84FF78E33E48BDD4D72 /* UIKit.framework */; };
+		51C77BF76ED0EB1482DA91AB /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FEEF0CE364C19654D24B76C /* main.mm */; };
+		65616D4E98D398DD2F133790 /* libapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E92DA6434E41FBE85829FF8E /* libapp.a */; };
+		6EB53A379A8CC9C75C6110BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1E729B335688AB8D0AB0AE /* Assets.xcassets */; };
+		6ECCE68125227A74DDEDD364 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 74DB5613D2FD113101262114 /* assets */; };
+		86822204FD3B41B3B641A668 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D603C85C91546067A2C3B3 /* Metal.framework */; };
+		8BDAFA8F3242C9165BFCE17B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44D0199DA98CC438266463 /* QuartzCore.framework */; };
+		908B56CB15FC3ED89CF08D84 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE42271746E5C104E517221 /* MetalKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D648EE9E15ECF4BA768C939 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		11643BF89FAD6EA23A5EF175 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		194793FD883487845EEBC7EB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		41D98A81A767D38C924B4D6F /* skola-mob_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "skola-mob_iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FEEF0CE364C19654D24B76C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		52876552CF4257B8E5A54DF9 /* bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bindings.h; sourceTree = "<group>"; };
+		5BF1A84FF78E33E48BDD4D72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5F44D0199DA98CC438266463 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		65F60414BA3B85C4E48E6E5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		74DB5613D2FD113101262114 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = SOURCE_ROOT; };
+		A7FFA8E0006F20917BBC35DF /* lib.rs */ = {isa = PBXFileReference; path = lib.rs; sourceTree = "<group>"; };
+		ADBDB6B1E38DA251A1F406CC /* main.rs */ = {isa = PBXFileReference; path = main.rs; sourceTree = "<group>"; };
+		B8173832D8AB3BB281EEC6A3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BDE42271746E5C104E517221 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		C6D603C85C91546067A2C3B3 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		D365DAB5E14D991A8C504E1E /* skola-mob_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "skola-mob_iOS.entitlements"; sourceTree = "<group>"; };
+		E92DA6434E41FBE85829FF8E /* libapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libapp.a; sourceTree = "<group>"; };
+		FC1E729B335688AB8D0AB0AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C567450530D044FEF712E10E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65616D4E98D398DD2F133790 /* libapp.a in Frameworks */,
+				13691C35D5B3E15E09BFA24E /* CoreGraphics.framework in Frameworks */,
+				86822204FD3B41B3B641A668 /* Metal.framework in Frameworks */,
+				908B56CB15FC3ED89CF08D84 /* MetalKit.framework in Frameworks */,
+				8BDAFA8F3242C9165BFCE17B /* QuartzCore.framework in Frameworks */,
+				00BEE16C95D74785FEEB9524 /* Security.framework in Frameworks */,
+				297A1FC29EBA4AFD6DF6E499 /* UIKit.framework in Frameworks */,
+				1B7C85DE09F5556849E43B73 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21F5197A30E006F8A738C3D5 /* bindings */ = {
+			isa = PBXGroup;
+			children = (
+				52876552CF4257B8E5A54DF9 /* bindings.h */,
+			);
+			path = bindings;
+			sourceTree = "<group>";
+		};
+		557966E4A8D6F112EFB11253 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A94FA403D26AB3C2D72C84E5 /* skola-mob */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		67632295A7418E92F2AE37E9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A7FFA8E0006F20917BBC35DF /* lib.rs */,
+				ADBDB6B1E38DA251A1F406CC /* main.rs */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		78D9E5D3E7C4A2208D89BE6C = {
+			isa = PBXGroup;
+			children = (
+				74DB5613D2FD113101262114 /* assets */,
+				FC1E729B335688AB8D0AB0AE /* Assets.xcassets */,
+				0D648EE9E15ECF4BA768C939 /* LaunchScreen.storyboard */,
+				971508AA67995310C88E9544 /* Externals */,
+				968B3B9FC8BAD268FF04B7A4 /* skola-mob_iOS */,
+				557966E4A8D6F112EFB11253 /* Sources */,
+				67632295A7418E92F2AE37E9 /* src */,
+				8797DAFB011DB472232850DE /* Frameworks */,
+				965DFADEEC6153671C3DEE00 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8797DAFB011DB472232850DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11643BF89FAD6EA23A5EF175 /* CoreGraphics.framework */,
+				E92DA6434E41FBE85829FF8E /* libapp.a */,
+				C6D603C85C91546067A2C3B3 /* Metal.framework */,
+				BDE42271746E5C104E517221 /* MetalKit.framework */,
+				5F44D0199DA98CC438266463 /* QuartzCore.framework */,
+				B8173832D8AB3BB281EEC6A3 /* Security.framework */,
+				5BF1A84FF78E33E48BDD4D72 /* UIKit.framework */,
+				194793FD883487845EEBC7EB /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		965DFADEEC6153671C3DEE00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41D98A81A767D38C924B4D6F /* skola-mob_iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		968B3B9FC8BAD268FF04B7A4 /* skola-mob_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				65F60414BA3B85C4E48E6E5C /* Info.plist */,
+				D365DAB5E14D991A8C504E1E /* skola-mob_iOS.entitlements */,
+			);
+			path = "skola-mob_iOS";
+			sourceTree = "<group>";
+		};
+		971508AA67995310C88E9544 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Externals;
+			sourceTree = "<group>";
+		};
+		A94FA403D26AB3C2D72C84E5 /* skola-mob */ = {
+			isa = PBXGroup;
+			children = (
+				4FEEF0CE364C19654D24B76C /* main.mm */,
+				21F5197A30E006F8A738C3D5 /* bindings */,
+			);
+			path = "skola-mob";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F208579327D83CFAF39ED15E /* skola-mob_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3628C836A9F5C8DAAB515F42 /* Build configuration list for PBXNativeTarget "skola-mob_iOS" */;
+			buildPhases = (
+				A4338E5415C2F917D528EEAE /* Build Rust Code */,
+				E075A667C3C2F308F340F802 /* Sources */,
+				5B27D93F0AA5991923C64184 /* Resources */,
+				C567450530D044FEF712E10E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "skola-mob_iOS";
+			productName = "skola-mob_iOS";
+			productReference = 41D98A81A767D38C924B4D6F /* skola-mob_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30A3433967877F3DAF1E8300 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = E08ABD8676B86D95A853AE1F /* Build configuration list for PBXProject "skola-mob" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 78D9E5D3E7C4A2208D89BE6C;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F208579327D83CFAF39ED15E /* skola-mob_iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B27D93F0AA5991923C64184 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB53A379A8CC9C75C6110BF /* Assets.xcassets in Resources */,
+				1AB2A4FCA1FA57C91662504C /* LaunchScreen.storyboard in Resources */,
+				6ECCE68125227A74DDEDD364 /* assets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A4338E5415C2F917D528EEAE /* Build Rust Code */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Rust Code";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Externals/x86_64/${CONFIGURATION}/libapp.a",
+				"$(SRCROOT)/Externals/arm64/${CONFIGURATION}/libapp.a",
+				"$(SRCROOT)/Externals/arm64-sim/${CONFIGURATION}/libapp.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bun tauri ios xcode-script -v --platform ${PLATFORM_DISPLAY_NAME:?} --sdk-root ${SDKROOT:?} --framework-search-paths \"${FRAMEWORK_SEARCH_PATHS:?}\" --header-search-paths \"${HEADER_SEARCH_PATHS:?}\" --gcc-preprocessor-definitions \"${GCC_PREPROCESSOR_DEFINITIONS:-}\" --configuration ${CONFIGURATION:?} ${FORCE_COLOR} ${ARCHS:?}";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E075A667C3C2F308F340F802 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51C77BF76ED0EB1482DA91AB /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		05F7CFEE9B467C1C3D2E3525 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = (
+					arm64,
+					"arm64-sim",
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "skola-mob_iOS/skola-mob_iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "arm64-sim x86_64";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\".\"",
+				);
+				INFOPLIST_FILE = "skola-mob_iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=arm64-sim]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64-sim/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = "$(inherited) $(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = eu.skola-mob.app;
+				PRODUCT_NAME = "skola-mob";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64  arm64-sim";
+			};
+			name = debug;
+		};
+		ABD6BAD4FBE945CA69A2DFEC /* release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = release;
+		};
+		DABD432C14492C5A36072878 /* release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = (
+					arm64,
+					"arm64-sim",
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "skola-mob_iOS/skola-mob_iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "arm64-sim x86_64";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\".\"",
+				);
+				INFOPLIST_FILE = "skola-mob_iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=arm64-sim]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64-sim/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = "$(inherited) $(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = eu.skola-mob.app;
+				PRODUCT_NAME = "skola-mob";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64  arm64-sim";
+			};
+			name = release;
+		};
+		EA8CE2DCB4184A6ECBCF1957 /* debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3628C836A9F5C8DAAB515F42 /* Build configuration list for PBXNativeTarget "skola-mob_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05F7CFEE9B467C1C3D2E3525 /* debug */,
+				DABD432C14492C5A36072878 /* release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = debug;
+		};
+		E08ABD8676B86D95A853AE1F /* Build configuration list for PBXProject "skola-mob" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA8CE2DCB4184A6ECBCF1957 /* debug */,
+				ABD6BAD4FBE945CA69A2DFEC /* release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30A3433967877F3DAF1E8300 /* Project object */;
+}
