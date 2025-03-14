@@ -6,6 +6,8 @@
     "main"
   ],
   "permissions": [
+    "prov:allow-ping",
+    "prov:default",
     "core:default",
     "opener:default",
     {
