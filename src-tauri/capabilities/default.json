@@ -6,9 +6,8 @@
     "main"
   ],
   "permissions": [
-    "prov:allow-ping",
-    "prov:default",
     "core:default",
+    "provision:default",
     "opener:default",
     {
       "identifier": "http:default",

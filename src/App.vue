@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { fetch } from "@tauri-apps/plugin-http";
 import { trace } from "@tauri-apps/plugin-log";
+import { ping } from "tauri-plugin-provision-api";
 
 const treshold_ok = ref(0);
 const treshold_nok = ref(0);
@@ -11,6 +12,17 @@ const apiUrl = ref("");
 const ipAddress = ref("");
 const valid = ref(true);
 
+const response = ref("");
+
+function updateResponse(returnValue: any) {
+		response.value += `[${new Date().toLocaleTimeString()}] ` + (typeof returnValue === 'string' ? returnValue : JSON.stringify(returnValue)) + '<br>'
+	}
+
+
+const _ping = async () => {
+  ping("Pong!").then(updateResponse).catch(updateResponse);
+}
+
 const submit = async () => {
   apiUrl.value = `http://${ipAddress.value}`
   await get_settings();
@@ -18,16 +30,16 @@ const submit = async () => {
 
 const update = async () => {
   let body: String = JSON.stringify({
-      treshold_ok: treshold_ok.value,
-      treshold_nok: treshold_nok.value,
-      charge_hours: charge_hours.value,
-    });
+    treshold_ok: treshold_ok.value,
+    treshold_nok: treshold_nok.value,
+    charge_hours: charge_hours.value,
+  });
   trace(`${body}`);
   const response = await fetch(`${apiUrl.value}/config`, {
     method: 'POST',
     headers: {
-			'content-type': 'application/json;charset=UTF-8',
-		},
+      'content-type': 'application/json;charset=UTF-8',
+    },
     body: JSON.stringify({
       treshold_ok: Number(treshold_ok.value),
       treshold_nok: Number(treshold_nok.value),
@@ -66,6 +78,10 @@ const reset = () => {
         <v-btn :disabled="!valid" color="primary" @click="submit">
           Submit
         </v-btn>
+        <v-btn @click="_ping">
+          ping
+        </v-btn>
+        Ping response: {{ response }}
       </v-form>
       <v-form ref="form" v-if="apiUrl !== ''" v-model="valid" lazy-validation>
         URL: {{ apiUrl }}<br>
