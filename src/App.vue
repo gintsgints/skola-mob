@@ -81,7 +81,7 @@ const reset = () => {
         <v-btn @click="_startScan">
           Start scan
         </v-btn>
-        Ping response: {{ response }}
+        Scan response: {{ response }}
       </v-form>
       <v-form ref="form" v-if="apiUrl !== ''" v-model="valid" lazy-validation>
         URL: {{ apiUrl }}<br>
