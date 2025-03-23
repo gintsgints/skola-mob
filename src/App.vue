@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { fetch } from "@tauri-apps/plugin-http";
 import { trace } from "@tauri-apps/plugin-log";
-import { ping } from "tauri-plugin-provision-api";
+import { startScan } from "tauri-plugin-provision-api";
 
 const treshold_ok = ref(0);
 const treshold_nok = ref(0);
@@ -19,8 +19,8 @@ function updateResponse(returnValue: any) {
 	}
 
 
-const _ping = async () => {
-  ping("Pong!").then(updateResponse).catch(updateResponse);
+const _startScan = async () => {
+  startScan("Pong!").then(updateResponse).catch(updateResponse);
 }
 
 const submit = async () => {
@@ -78,8 +78,8 @@ const reset = () => {
         <v-btn :disabled="!valid" color="primary" @click="submit">
           Submit
         </v-btn>
-        <v-btn @click="_ping">
-          ping
+        <v-btn @click="_startScan">
+          Start scan
         </v-btn>
         Ping response: {{ response }}
       </v-form>
