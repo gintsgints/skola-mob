@@ -2,12 +2,12 @@
 import { ref } from "vue";
 import { fetch } from "@tauri-apps/plugin-http";
 import { trace } from "@tauri-apps/plugin-log";
-import { startScan, onDevice } from "tauri-plugin-provision-api";
+import { startScan, wifiProvision, onDevice } from "tauri-plugin-provision-api";
 
 const found_address = ref("");
 const found_name = ref("");
 const proof_of_possession = ref("abcd1234");
-const access_point = ref("");
+const ssid = ref("");
 const password = ref("");
 
 const treshold_ok = ref(0);
@@ -26,6 +26,7 @@ function updateResponse(returnValue: any) {
 
 
 const scan = async () => {
+  found_name.value = '';
   onDevice((device) => {
     console.log(`Device found: ${device}`);
     found_address.value = device.address;
@@ -35,7 +36,13 @@ const scan = async () => {
 }
 
 const provision = async () => {
-  console.log(`Provisioning ${found_name.value} with ${proof_of_possession.value} and ${access_point.value} and ${password.value}`);
+  console.log(`Provisioning ${found_name.value} with ${proof_of_possession.value} and ${ssid.value} and ${password.value}`);
+  wifiProvision({
+    address: found_address.value,
+    pop: proof_of_possession.value,
+    ssid: ssid.value,
+    password: password.value,
+  }).then(updateResponse).catch(updateResponse);
 }
 
 const submit = async () => {
@@ -100,7 +107,7 @@ const reset = () => {
       <v-form v-if="found_name !== ''">
           Provision with:<br>
           <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
-          <v-text-field v-model="access_point" label="Access point:" required outlined></v-text-field>
+          <v-text-field v-model="ssid" label="Access point:" required outlined></v-text-field>
           <v-text-field v-model="password" label="Password" required outlined></v-text-field>
           <v-btn @click="provision">Provision {{ found_name }}</v-btn>
       </v-form>
@@ -119,6 +126,7 @@ const reset = () => {
           Update settings
         </v-btn>
       </v-form>
+      {{ response }}
     </v-container>
   </v-app>
 </template>
