@@ -2,6 +2,13 @@
 import { ref } from "vue";
 import { fetch } from "@tauri-apps/plugin-http";
 import { trace } from "@tauri-apps/plugin-log";
+import { startScan, onDevice } from "tauri-plugin-provision-api";
+
+const found_address = ref("");
+const found_name = ref("");
+const proof_of_possession = ref("abcd1234");
+const access_point = ref("");
+const password = ref("");
 
 const treshold_ok = ref(0);
 const treshold_nok = ref(0);
@@ -11,6 +18,26 @@ const apiUrl = ref("");
 const ipAddress = ref("");
 const valid = ref(true);
 
+const response = ref("");
+
+function updateResponse(returnValue: any) {
+  response.value += `[${new Date().toLocaleTimeString()}] ` + (typeof returnValue === 'string' ? returnValue : JSON.stringify(returnValue)) + '<br>'
+}
+
+
+const scan = async () => {
+  onDevice((device) => {
+    console.log(`Device found: ${device}`);
+    found_address.value = device.address;
+    found_name.value = device.name;
+  });
+  startScan().then(updateResponse).catch(updateResponse);
+}
+
+const provision = async () => {
+  console.log(`Provisioning ${found_name.value} with ${proof_of_possession.value} and ${access_point.value} and ${password.value}`);
+}
+
 const submit = async () => {
   apiUrl.value = `http://${ipAddress.value}`
   await get_settings();
@@ -18,16 +45,16 @@ const submit = async () => {
 
 const update = async () => {
   let body: String = JSON.stringify({
-      treshold_ok: treshold_ok.value,
-      treshold_nok: treshold_nok.value,
-      charge_hours: charge_hours.value,
-    });
+    treshold_ok: treshold_ok.value,
+    treshold_nok: treshold_nok.value,
+    charge_hours: charge_hours.value,
+  });
   trace(`${body}`);
   const response = await fetch(`${apiUrl.value}/config`, {
     method: 'POST',
     headers: {
-			'content-type': 'application/json;charset=UTF-8',
-		},
+      'content-type': 'application/json;charset=UTF-8',
+    },
     body: JSON.stringify({
       treshold_ok: Number(treshold_ok.value),
       treshold_nok: Number(treshold_nok.value),
@@ -66,7 +93,18 @@ const reset = () => {
         <v-btn :disabled="!valid" color="primary" @click="submit">
           Submit
         </v-btn>
+        <v-btn @click="scan">
+          Start scan
+        </v-btn><br>
       </v-form>
+      <v-form v-if="found_name !== ''">
+          Provision with:<br>
+          <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
+          <v-text-field v-model="access_point" label="Access point:" required outlined></v-text-field>
+          <v-text-field v-model="password" label="Password" required outlined></v-text-field>
+          <v-btn @click="provision">Provision {{ found_name }}</v-btn>
+      </v-form>
+      <v-divider></v-divider>
       <v-form ref="form" v-if="apiUrl !== ''" v-model="valid" lazy-validation>
         URL: {{ apiUrl }}<br>
         <v-btn color="secondary" @click="reset">
