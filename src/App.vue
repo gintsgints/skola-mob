@@ -10,6 +10,9 @@ const proof_of_possession = ref("abcd1234");
 const ssid = ref("");
 const password = ref("");
 
+const processing = ref(false);
+const api_error = ref("");
+
 const treshold_ok = ref(0);
 const treshold_nok = ref(0);
 const charge_hours = ref(0);
@@ -51,37 +54,55 @@ const submit = async () => {
 }
 
 const update = async () => {
+  api_error.value = '';
   let body: String = JSON.stringify({
     treshold_ok: treshold_ok.value,
     treshold_nok: treshold_nok.value,
     charge_hours: charge_hours.value,
   });
   trace(`${body}`);
-  const response = await fetch(`${apiUrl.value}/config`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json;charset=UTF-8',
-    },
-    body: JSON.stringify({
-      treshold_ok: Number(treshold_ok.value),
-      treshold_nok: Number(treshold_nok.value),
-      charge_hours: Number(charge_hours.value),
-    })
-  });
-  trace(`Response statuss: ${response.status}`);
+  try {
+    const response = await fetch(`${apiUrl.value}/config`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json;charset=UTF-8',
+      },
+      body: JSON.stringify({
+        treshold_ok: Number(treshold_ok.value),
+        treshold_nok: Number(treshold_nok.value),
+        charge_hours: Number(charge_hours.value),
+      })
+    });
+    if (response.status !== 200) {
+      api_error.value = `Error: ${response.status}`;
+    }
+  } catch (error) {
+    api_error.value = `Error: ${error}`;
+  }
   await get_settings();
 }
 
 const get_settings = async () => {
+  processing.value = true;
+  api_error.value = '';
   trace(`Getting settings from ${apiUrl.value}/config`);
-  const response = await fetch(`${apiUrl.value}/config`, {
-    method: 'GET',
-  });
-  trace(`Response statuss: ${response.status}`);
-  const resp_json = await response.json();
-  treshold_nok.value = resp_json.treshold_nok;
-  treshold_ok.value = resp_json.treshold_ok;
-  charge_hours.value = resp_json.charge_hours;
+  try {
+    const response = await fetch(`${apiUrl.value}/config`, {
+      method: 'GET',
+    });
+    if (response.status !== 200) {
+      api_error.value = `Error: ${response.status}`;
+    }
+    trace(`Response statuss: ${response.status}`);
+    const resp_json = await response.json();
+    treshold_nok.value = resp_json.treshold_nok;
+    treshold_ok.value = resp_json.treshold_ok;
+    charge_hours.value = resp_json.charge_hours;
+  } catch (error) {
+    api_error.value = `Error: ${error}`;
+  } finally {
+    processing.value = false;
+  }
 }
 
 const reset = () => {
@@ -106,11 +127,11 @@ const reset = () => {
         </v-btn><br>
       </v-form>
       <v-form v-if="found_name !== ''">
-          Provision with:<br>
-          <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
-          <v-text-field v-model="ssid" label="Access point:" required outlined></v-text-field>
-          <v-text-field v-model="password" label="Password" required outlined></v-text-field>
-          <v-btn @click="provision">Provision {{ found_name }}</v-btn>
+        Provision with:<br>
+        <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
+        <v-text-field v-model="ssid" label="Access point:" required outlined></v-text-field>
+        <v-text-field v-model="password" label="Password" required outlined></v-text-field>
+        <v-btn @click="provision">Provision {{ found_name }}</v-btn>
       </v-form>
       <v-divider></v-divider>
       <v-form ref="form" v-if="apiUrl !== ''" v-model="valid" lazy-validation>
@@ -122,13 +143,16 @@ const reset = () => {
           Reset URL
         </v-btn>
         <v-divider></v-divider>
-        <v-text-field v-model="treshold_ok" label="Treshold OK" required outlined></v-text-field>
-        <v-text-field v-model="treshold_nok" label="Treshold NOK" required outlined></v-text-field>
-        <v-text-field v-model="charge_hours" label="Charge hours" required outlined></v-text-field>
-
-        <v-btn :disabled="!valid" color="primary" @click="update">
-          Update settings
-        </v-btn>
+        <div>{{ api_error }}</div>
+        <div v-if="processing">Processing API call...</div>
+        <div v-if="(!processing) && (!api_error)">
+          <v-text-field v-model="treshold_ok" label="Treshold OK" required outlined></v-text-field>
+          <v-text-field v-model="treshold_nok" label="Treshold NOK" required outlined></v-text-field>
+          <v-text-field v-model="charge_hours" label="Charge hours" required outlined></v-text-field>
+          <v-btn :disabled="!valid" color="primary" @click="update">
+            Update settings
+          </v-btn>
+        </div>
       </v-form>
       {{ response }}
     </v-container>
