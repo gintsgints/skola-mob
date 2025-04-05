@@ -73,6 +73,7 @@ const update = async () => {
 }
 
 const get_settings = async () => {
+  trace(`Getting settings from ${apiUrl.value}/config`);
   const response = await fetch(`${apiUrl.value}/config`, {
     method: 'GET',
   });
@@ -114,6 +115,9 @@ const reset = () => {
       <v-divider></v-divider>
       <v-form ref="form" v-if="apiUrl !== ''" v-model="valid" lazy-validation>
         URL: {{ apiUrl }}<br>
+        <v-btn color="primary" @click="get_settings">
+          Refresh settings
+        </v-btn>
         <v-btn color="secondary" @click="reset">
           Reset URL
         </v-btn>
