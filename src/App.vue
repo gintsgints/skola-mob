@@ -6,6 +6,7 @@ import { startScan, wifiProvision, onDevice } from "tauri-plugin-provision-api";
 
 const found_address = ref("");
 const found_name = ref("");
+const scan_error = ref("");
 const proof_of_possession = ref("abcd1234");
 const ssid = ref("");
 const password = ref("");
@@ -34,6 +35,7 @@ const scan = async () => {
     console.log(`Device found: ${device}`);
     found_address.value = device.address;
     found_name.value = device.name;
+    scan_error.value = device.error;
   });
   startScan().then(updateResponse).catch(updateResponse);
 }
@@ -126,13 +128,16 @@ const reset = () => {
           Start scan
         </v-btn><br>
       </v-form>
-      <v-form v-if="found_name !== ''">
-        Provision with:<br>
-        <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
-        <v-text-field v-model="ssid" label="Access point:" required outlined></v-text-field>
-        <v-text-field v-model="password" label="Password" required outlined></v-text-field>
-        <v-btn @click="provision">Provision {{ found_name }}</v-btn>
-      </v-form>
+      <div v-if="scan_error === ''">
+        <v-form v-if="found_name !== ''">
+          Provision with:<br>
+          <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
+          <v-text-field v-model="ssid" label="Access point:" required outlined></v-text-field>
+          <v-text-field v-model="password" label="Password" required outlined></v-text-field>
+          <v-btn @click="provision">Provision {{ found_name }}</v-btn>
+        </v-form>
+      </div>
+      <div v-if="scan_error !== ''">Error scaning device: {{ scan_error }}</div>
       <v-divider></v-divider>
       <v-form ref="form" v-if="apiUrl !== ''" v-model="valid" lazy-validation>
         URL: {{ apiUrl }}<br>
