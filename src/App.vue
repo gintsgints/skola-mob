@@ -129,7 +129,7 @@ const reset = () => {
         </v-btn><br>
       </v-form>
       <div v-if="scan_error === ''">
-        <v-form v-if="found_name !== ''">
+        <v-form v-if="(found_name !== '') && (apiUrl === '')">
           Provision with:<br>
           <v-text-field v-model="proof_of_possession" label="Proof of possession" required outlined></v-text-field>
           <v-text-field v-model="ssid" label="Access point:" required outlined></v-text-field>
